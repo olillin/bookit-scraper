@@ -1,6 +1,6 @@
 {
   "name": "bookit-scraper",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Scrape events from BookIT",
   "homepage": "https://github.com/olillin/bookit-scraper#readme",
   "bugs": {
