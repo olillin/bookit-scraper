@@ -14,15 +14,17 @@
   "author": "Oli <oli@olillin.com>",
   "type": "commonjs",
   "scripts": {
-    "build": "tsc",
+    "clean": "rimraf dist",
+    "build": "npm run clean && tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "graphql-request": "^7.2.0",
-    "selenium-webdriver": "^4.33.0",
-    "typescript": "^5.8.3"
+    "selenium-webdriver": "^4.33.0"
   },
   "devDependencies": {
-    "@types/selenium-webdriver": "^4.1.28"
+    "@types/selenium-webdriver": "^4.1.28",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.8.3"
   }
 }
