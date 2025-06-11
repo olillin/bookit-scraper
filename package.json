@@ -1,0 +1,28 @@
+{
+  "name": "bookit-scraper",
+  "version": "0.1.0",
+  "description": "Scrape events from BookIT",
+  "homepage": "https://github.com/olillin/bookit-scraper#readme",
+  "bugs": {
+    "url": "https://github.com/olillin/bookit-scraper/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olillin/bookit-scraper.git"
+  },
+  "license": "MIT",
+  "author": "Oli <oli@olillin.com>",
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "graphql-request": "^7.2.0",
+    "selenium-webdriver": "^4.33.0",
+    "typescript": "^5.8.3"
+  },
+  "devDependencies": {
+    "@types/selenium-webdriver": "^4.1.28"
+  }
+}
