@@ -1,6 +1,6 @@
-import { BOOKIT_URL } from './constants'
+import { BOOKIT_URL } from './constants.mjs'
 import { Builder, Browser, By, Key, until } from 'selenium-webdriver'
-import { Options } from 'selenium-webdriver/firefox'
+import { Options } from 'selenium-webdriver/firefox.js'
 
 export function createCookie(username: string, password: string): Promise<string> {
     return new Promise(async (resolve, reject) => {
