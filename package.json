@@ -31,5 +31,8 @@
     "dist/",
     "src/",
     "shell.nix"
-  ]
+  ],
+  "exports": {
+    ".": "./dist/index.js"
+  }
 }
