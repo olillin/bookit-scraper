@@ -1,5 +1,5 @@
 import { BOOKIT_URL } from './constants.mjs'
-import { Builder, Browser, By, Key, until } from 'selenium-webdriver'
+import { Builder, Browser, By, Key, until, IWebDriverOptionsCookie } from 'selenium-webdriver'
 import { Options } from 'selenium-webdriver/firefox.js'
 import { TimeoutError } from 'selenium-webdriver/lib/error.js'
 
@@ -18,7 +18,7 @@ export function createCookie(username: string, password: string, timeout: number
             await driver.wait(until.urlMatches(/^https:\/\/bookit\.chalmers\.it.*/), timeout)
 
             const cookie = await driver.manage().getCookie('appSession')
-            resolve(`${cookie.name}=${cookie.value}`)
+            resolve(formatCookie(cookie))
         } catch (e) {
             if (e instanceof TimeoutError) {
                 const url = await driver.getCurrentUrl()
@@ -29,4 +29,21 @@ export function createCookie(username: string, password: string, timeout: number
             await driver.quit()
         }
     })
+}
+
+function formatCookie(cookie: IWebDriverOptionsCookie): string {
+    const attributes = [
+        `${cookie.name}=${cookie.value}`,
+        cookie.domain ? `Domain=${cookie.domain}` : null,
+        cookie.expiry ? `Expires=${formatDate(cookie.expiry)}` : null,
+        cookie.httpOnly ? 'HttpOnly' : null,
+        cookie.path ? `Path=${cookie.path}` : null,
+        cookie.secure ? 'Secure' : null,
+        cookie.sameSite ? `SameSite=${cookie.sameSite}` : null,
+    ].filter(x => !!x)
+    return attributes.join(';')
+}
+
+function formatDate(date: number | Date): string {
+    return (typeof date === 'number' ? new Date(date * 1000) : date).toUTCString()
 }
