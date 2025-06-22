@@ -13,7 +13,7 @@ export const translateRoom = translationFunction({
     'BIG_HUB': 'Storhubben',
     'GROUP_ROOM': 'Grupprummet',
     'CTC': 'CTC',
-    'The Cloud': 'The Cloud',
+    'THE_CLOUD': 'The Cloud',
 })
 
 /**
